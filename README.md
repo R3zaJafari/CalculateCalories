@@ -33,7 +33,7 @@ Please see [ASSUMPTIONS.md](ASSUMPTIONS.md) for the assumptions made during deve
     ```bash
     cp .env.example .env
     ```
-3. Build and start Docker containers:
+3. Build and start Docker containers: (sudo permission)
     ```bash
     docker-compose up -d --build
     ```
