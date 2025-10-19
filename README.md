@@ -28,7 +28,7 @@ Please see [ASSUMPTIONS.md](ASSUMPTIONS.md) for the assumptions made during deve
     ```bash
     git clone https://github.com/R3zaJafari/CalculateCalories
     ```
-   `cd Calculate-calories`
+   `cd CalculateCalories`
 2. Copy the example environment file:
     ```bash
     cp .env.example .env
