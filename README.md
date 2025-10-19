@@ -33,18 +33,24 @@ Please see [ASSUMPTIONS.md](ASSUMPTIONS.md) for the assumptions made during deve
     ```bash
     cp .env.example .env
     ```
-3. Update .env with your database credentials.
-
-4. Build and start Docker containers:
+3. Build and start Docker containers:
     ```bash
     docker-compose up -d --build
     ```
-5. Run database migrations:
+4. Install PHP dependencies inside the container:
     ```bash
-    docker-compose exec app php artisan migrate
+    docker compose exec app composer install
+    ```
+5. Generate the application key:
+    ```bash
+    docker compose exec app php artisan key:generate
+    ```
+6. Run database migrations:
+    ```bash
+    docker compose exec app php artisan migrate
     ```
 ## Usage
-
+`The app runs on http://localhost:8080`
 ### Register a Meal
 
 **POST /api/simulate/register-meal**
@@ -57,7 +63,7 @@ Please see [ASSUMPTIONS.md](ASSUMPTIONS.md) for the assumptions made during deve
   "calories": 600
 }
 
-curl -X POST http://localhost:8000/api/simulate/register-meal \
+curl -X POST http://localhost:8080/api/simulate/register-meal \
 -H "Content-Type: application/json" \
 -d '{"telegram_id":"12345","meal_name":"Lunch","calories":600}'
 
