@@ -15,7 +15,7 @@ WORKDIR /var/www
 COPY . .
 
 # Install dependencies if composer.json exists
-RUN if [ -f composer.json ]; then composer install --no-interaction --prefer-dist; fi
+RUN if [ -f composer.json ]; then composer install --no-dev --prefer-dist --optimize-autoloader; fi
 
 # Copy .env.example if .env doesn't exist
 RUN if [ ! -f .env ]; then cp .env.example .env; fi

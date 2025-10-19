@@ -33,19 +33,23 @@ Please see [ASSUMPTIONS.md](ASSUMPTIONS.md) for the assumptions made during deve
     ```bash
     cp .env.example .env
     ```
-3. Build and start Docker containers: (sudo permission)
+3. install composer to create vendor folder:
+    ```bash
+    composer install
+    ```    
+4. Build and start Docker containers: (sudo permission)
     ```bash
     docker-compose up -d --build
     ```
-4. Install PHP dependencies inside the container:
+5. Install PHP dependencies inside the container: (sudo permission)
     ```bash
     docker compose exec app composer install
     ```
-5. Generate the application key:
+6. Generate the application key: (sudo permission)
     ```bash
-    docker compose exec app php artisan key:generate
+    docker compose exec app php artisan key:generate 
     ```
-6. Run database migrations:
+7. Run database migrations: (sudo permission)
     ```bash
     docker compose exec app php artisan migrate
     ```
